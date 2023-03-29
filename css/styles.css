@@ -156,6 +156,11 @@ h6 {
   margin: 10px;
 }
 
+.game-summary h2:hover {
+  cursor: pointer;
+  color: var(--light-color);
+}
+
 .keyboard {
   display: grid;
   grid-template-columns: repeat(13, 1fr);

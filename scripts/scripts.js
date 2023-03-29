@@ -161,3 +161,16 @@ function stopShaking(image) {
 }
 
 Hangman.init();
+
+//game summary hiding:
+
+const $gameSummaryH2 = $(".game-summary h2");
+const $gameSummaryP = $(".game-summary p");
+
+$gameSummaryH2.click(function(){
+  if ($gameSummaryP.is(":hidden")) {
+    $gameSummaryP.slideDown();
+  } else {
+    $gameSummaryP.slideUp();
+  }
+});
