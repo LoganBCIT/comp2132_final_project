@@ -1,0 +1,298 @@
+// const words = [
+//     { word: "unicorn", hint: "A mythical creature with a horn on its forehead." },
+//     { word: "dragon", hint: "A mythical creature with wings that breathes fire." },
+//     { word: "pizza", hint: "A delicious dish made with dough, tomato sauce, and cheese." },
+//     { word: "beach", hint: "A sandy area by the sea where people swim and sunbathe." },
+//     { word: "camera", hint: "A device used to take photographs and record videos." },
+//     { word: "penguin", hint: "A flightless bird that lives in cold climates." },
+//     { word: "rainbow", hint: "A colorful arc in the sky that appears after rain." },
+//     { word: "pirate", hint: "A sailor who attacks and steals from other ships." },
+//     { word: "volcano", hint: "A mountain with a crater that erupts lava and ash." },
+//     { word: "treasure", hint: "A collection of valuable objects that are hidden or buried." },
+//     { word: "robot", hint: "A machine that can be programmed to perform a variety of tasks." },
+//     { word: "chocolate", hint: "A sweet food made from roasted and ground cacao seeds." }
+//   ];
+
+// const maxGuesses = 6;
+// let remainingGuesses = maxGuesses;
+// let stage = 1;
+
+// let randomIndex = Math.floor(Math.random() * words.length);
+// let randomWord = words[randomIndex].word;
+// let randomHint = words[randomIndex].hint;
+
+// const $keyboardButton = $('.key-row button');
+// const $classmateImage = $("#classmate-image");
+
+// const $puzzleContainer = $("#puzzle-container");
+// const $blankSpace = $("#blank-spaces");
+
+// let $winOrLose = $("#win-or-lose");
+// let $winOrLoseMessage = $("#win-or-lose-message");
+
+// for (let i = 0; i < randomWord.length; i++) {
+//   const blankSpaceChar = $("<span>").text("_");
+//   $blankSpace.append(blankSpaceChar);
+// }
+
+// const $hint = $("#hint");
+// const hintContent = $("<p>").text(`Hint: ${randomHint}`);
+// $hint.append(hintContent);
+
+
+
+// // disable button after click
+// $keyboardButton.click(function() {
+//   $(this).attr('disabled', 'disabled');
+//   const letter = $(this).attr('id');
+//   console.log(letter)
+//   checkLetter(letter);
+
+// });
+
+// let totalCorrectLetters = 0;
+
+// function checkLetter(letter) {
+//   let correctLetters = 0;
+
+//   let randomImage = Math.floor(Math.random() * 2) + 1;
+
+//   for (let i = 0; i < randomWord.length; i++) {
+//     const wordLetter = randomWord[i];
+
+//     if (letter == wordLetter){
+//       $blankSpace.children().eq(i).text(letter);
+//       correctLetters += 1;
+//       totalCorrectLetters += 1;
+//     }
+//   }
+
+//   if (correctLetters < 1) {
+//     remainingGuesses--;
+//     stage += 1;
+//     $classmateImage.attr("src", `images/stage ${stage}/${randomImage}.png`);
+//   }
+
+//   //tell the user they lost
+//   if (remainingGuesses == 0) {
+//     $classmateImage.attr("src", `images/lose/${randomImage}.png`);
+//     $winOrLose.text("You LOSE!");
+//     $winOrLoseMessage.text("You couldn't guess the word, and now your partner has failed the class. for your terrible performance, the teacher failed you too. However, you can try to redeem yourself by playing again!");
+//     $keyboardButton.attr('disabled', true);
+//     showPopup();
+//   }
+
+//   //tell the user they won
+//   if (totalCorrectLetters == randomWord.length) {
+//     $classmateImage.attr("src", `images/win/1.png`);
+//     $winOrLose.text("You WIN!");
+//     $winOrLoseMessage.text("You guessed the word! Your partner is relieved, and says he trusted you all along. Moreover, you can try to show the class who's boss once again by playing again!");
+//     $keyboardButton.attr('disabled', true);
+//     showPopup();
+//   }
+// }
+
+// const $popup = $('#popup');
+// $('#close').click(hidePopup);
+
+// const $playagain = $("#play-again");
+// $playagain.click(resetGame);
+
+// function resetGame() {
+
+//   remainingGuesses = maxGuesses;
+//   stage = 1;
+//   randomImage = Math.floor(Math.random() * 2) + 1;
+//   totalCorrectLetters = 0;
+
+//   $classmateImage.attr("src", `images/stage ${stage}/1.png`);
+
+//   $blankSpace.empty();
+//   $keyboardButton.removeAttr('disabled');
+
+//   hidePopup();
+
+//   // Select new random word and hint
+//   const randomIndex = Math.floor(Math.random() * words.length);
+//   randomWord = words[randomIndex].word;
+//   randomHint = words[randomIndex].hint;
+
+//   // Update blank spaces with new random word
+//   for (let i = 0; i < randomWord.length; i++) {
+//     const blankSpaceChar = $("<span>").text("_");
+//     $blankSpace.append(blankSpaceChar);
+//   }
+
+//   hintContent.text(`Hint: ${randomHint}`);
+// }
+
+// //showing the popup
+// function showPopup() {
+//   $popup.removeClass('hidden');
+//   $popup.css('transition', 'opacity 1s');
+// }
+
+// //hiding the popup
+// function hidePopup() {
+//   $popup.addClass('hidden');
+//   $popup.css('transition', 'opacity 1s');
+// }
+
+const Hangman = {
+  words: [
+    { word: "unicorn", hint: "A mythical creature with a horn on its forehead." },
+    { word: "dragon", hint: "A mythical creature with wings that breathes fire." },
+    { word: "pizza", hint: "A delicious dish made with dough, tomato sauce, and cheese." },
+    { word: "beach", hint: "A sandy area by the sea where people swim and sunbathe." },
+    { word: "camera", hint: "A device used to take photographs and record videos." },
+    { word: "penguin", hint: "A flightless bird that lives in cold climates." },
+    { word: "rainbow", hint: "A colorful arc in the sky that appears after rain." },
+    { word: "pirate", hint: "A sailor who attacks and steals from other ships." },
+    { word: "volcano", hint: "A mountain with a crater that erupts lava and ash." },
+    { word: "treasure", hint: "A collection of valuable objects that are hidden or buried." },
+    { word: "robot", hint: "A machine that can be programmed to perform a variety of tasks." },
+    { word: "chocolate", hint: "A sweet food made from roasted and ground cacao seeds." }
+  ],
+
+  maxGuesses: 6,
+  remainingGuesses: 0,
+  incorrectGuesses: 0,
+  stage: 1,
+  randomIndex: 0,
+  randomWord: '',
+  randomHint: '',
+  totalCorrectLetters: 0,
+
+  $keyboardButton: $('.key-row button'),
+  $classmateImage: $("#classmate-image"),
+  $puzzleContainer: $("#puzzle-container"),
+  $blankSpace: $("#blank-spaces"),
+  $winOrLose: $("#win-or-lose"),
+  $winOrLoseMessage: $("#win-or-lose-message"),
+  $hint: $("#hint"),
+  $popup: $('#popup'),
+  $playagain: $("#play-again"),
+
+  init: function() {
+
+    this.maxGuesses = 6; 
+    this.remainingGuesses = this.maxGuesses; 
+    this.incorrectGuesses = 0;
+
+    this.randomIndex = Math.floor(Math.random() * this.words.length);
+    this.randomWord = this.words[this.randomIndex].word;
+    this.randomHint = this.words[this.randomIndex].hint;
+
+    for (let i = 0; i < this.randomWord.length; i++) {
+      const blankSpaceChar = $("<span>").text("_");
+      this.$blankSpace.append(blankSpaceChar);
+    }
+
+    const hintContent = $("<p>").text(`Hint: ${this.randomHint}`);
+    this.$hint.append(hintContent);
+
+    const $displayIncorrectGuesses = $("#incorrect-guesses");
+    $displayIncorrectGuesses.text(`Incorrect Guesses: ${this.incorrectGuesses}/${this.maxGuesses}`);
+
+    this.$keyboardButton.click(function() {
+      $(this).attr('disabled', 'disabled');
+      const letter = $(this).attr('id');
+      Hangman.checkLetter(letter);
+    });
+
+    this.$playagain.click(function() {
+      Hangman.resetGame();
+    });
+  },
+
+  checkLetter: function(letter) {
+    let correctLetters = 0;
+
+    let randomImage = Math.floor(Math.random() * 2) + 1;
+
+    for (let i = 0; i < this.randomWord.length; i++) {
+      const wordLetter = this.randomWord[i];
+
+      if (letter == wordLetter){
+        this.$blankSpace.children().eq(i).text(letter);
+        correctLetters += 1;
+        this.totalCorrectLetters += 1;
+      }
+    }
+
+
+    if (correctLetters < 1) {
+      this.remainingGuesses--;
+      this.incorrectGuesses++;
+      this.stage += 1;
+      this.$classmateImage.attr("src", `images/stage ${this.stage}/${randomImage}.png`);
+      const $displayIncorrectGuesses = $("#incorrect-guesses");
+      $displayIncorrectGuesses.text(`Incorrect Guesses: ${this.incorrectGuesses}/${this.maxGuesses}`);
+    }
+
+    //tell the user they lost
+    if (this.remainingGuesses == 0) {
+      this.$classmateImage.attr("src", `images/lose/${randomImage}.png`);
+      shakeImage(this.$classmateImage);
+      this.$winOrLose.text("You LOSE!");
+      this.$winOrLoseMessage.text("You couldn't guess the word, and now your partner has failed the class. for your terrible performance, the teacher failed you too. However, you can try to redeem yourself by playing again!");
+      this.$keyboardButton.attr('disabled', true);
+      this.showPopup();
+    }
+
+    //tell the user they won
+    if (this.totalCorrectLetters == this.randomWord.length) {
+      this.$classmateImage.attr("src", `images/win/1.png`);
+      this.$winOrLose.text("You WIN!");
+      this.$winOrLoseMessage.text("You guessed the word! Your partner is relieved, and says he trusted you all along. Moreover, you can try to show the class who's boss once again by playing again!");
+      this.$keyboardButton.attr('disabled', true);
+      this.showPopup();
+    }
+
+    console.log("Remainaing guesses: ", this.remainingGuesses);
+    console.log("Incorrect guesses: ", this.incorrectGuesses);
+  },
+
+  resetGame: function() {
+    this.remainingGuesses = this.maxGuesses;
+    this.incorrectGuesses = 0;
+    const $displayIncorrectGuesses = $("#incorrect-guesses");
+    $displayIncorrectGuesses.text(`Incorrect Guesses: ${this.incorrectGuesses}/${this.maxGuesses}`);
+    this.stage = 1;
+    this.randomIndex = Math.floor(Math.random() * this.words.length);
+    this.randomWord = this.words[this.randomIndex].word;
+    this.randomHint = this.words[this.randomIndex].hint;
+    this.totalCorrectLetters = 0;
+    this.$classmateImage.attr("src", `images/stage ${this.stage}/1.png`);
+    stopShaking(this.$classmateImage);
+    this.$blankSpace.empty();
+    this.$keyboardButton.removeAttr('disabled');
+    this.hidePopup();
+    for (let i = 0; i < this.randomWord.length; i++) {
+      const blankSpaceChar = $("<span>").text("_");
+      this.$blankSpace.append(blankSpaceChar);
+    }
+    const hintContent = $("<p>").text(`Hint: ${this.randomHint}`);
+    this.$hint.html(hintContent);
+  },
+
+  showPopup: function() {
+    this.$popup.removeClass('hidden');
+    this.$popup.css('transition', 'opacity 1s');
+  },
+
+  hidePopup: function() {
+    this.$popup.addClass('hidden');
+    this.$popup.css('transition', 'opacity 1s');
+  }
+};
+
+function shakeImage(image) {
+  image.addClass('shake');
+}
+
+function stopShaking(image) {
+  image.removeClass('shake');
+}
+
+Hangman.init();

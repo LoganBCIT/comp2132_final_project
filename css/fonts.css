@@ -1,0 +1,16 @@
+/* Headigns */
+@font-face {
+    font-family: 'Noto Serif', serif;
+    src: url('../fonts/notoSerif/NotoSerif-Bold.ttf') format('wght'),
+         url('../fonts/notoSerif/NotoSerif-Bold.ttf') format('wght');
+    font-weight: normal;
+    font-style: normal;
+}
+/* block text */
+@font-face {
+    font-family: 'Sofia Sans', sans-serif;
+    src: url('../fonts/static/SofiaSans-Regular.ttf') format('wght'),
+         url('../fonts/static/SofiaSans-Regular.ttf') format('wght');
+    font-weight: normal;
+    font-style: normal;
+}

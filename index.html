@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Assignment 1 | COMP2132</title>
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="UTF-8">
+        <!-- favicon -->
+        <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-touch-icon.png">
+        <link rel="icon" type="image/png" sizes="32x32" href="favicon/favicon-32x32.png">
+        <link rel="icon" type="image/png" sizes="16x16" href="favicon/favicon-16x16.png">
+
+        <link rel="stylesheet" href="css/styles.css">
+        <script src="scripts/jquery-3.4.1.min.js" defer></script>
+        <script src="scripts/scripts.js" defer></script>
+        
+    </head>
+    <body>
+        <div id="wrapper">
+            <header>
+                <h1>COMP2132 Hangman - Logan D-A</h1>
+            </header>
+            <main>
+
+                <div id="popup" class="hidden popup-style">
+                    <h2 id="win-or-lose"></h2>
+                    <p id="win-or-lose-message"></p>
+                    <button id="play-again">Play again</button>
+                </div>
+
+                <div class="image-wrapper">
+                    <img src="images/background/background.jpg" alt="classroom">
+                    <img id="classmate-image" class="overlay-image" src="images/stage 1/1.png" alt="Idle face">
+                </div>
+                
+                <div class="game-container">
+                    <div id="puzzle-container">
+                        <div id="blank-spaces"></div>
+                        <p id="hint"></p>
+                        <p id="incorrect-guesses"></p>
+                    </div>
+                        <div class="keyboard">
+                            <div class="key-row">
+                                <button id="a">A</button>
+                                <button id="b">B</button>
+                                <button id="c">C</button>
+                                <button id="d">D</button>
+                                <button id="e">E</button>
+                                <button id="f">F</button>
+                                <button id="g">G</button>
+                                <button id="h">H</button>
+                                <button id="i">I</button>
+                                <button id="j">J</button>
+                                <button id="k">K</button>
+                                <button id="l">L</button>
+                            </div>
+                            <div class="key-row">
+                                <button id="m">M</button>
+                                <button id="n">N</button>
+                                <button id="o">O</button>
+                                <button id="p">P</button>
+                                <button id="q">Q</button>
+                                <button id="r">R</button>
+                                <button id="s">S</button>
+                                <button id="t">T</button>
+                                <button id="u">U</button>
+                                <button id="v">V</button>
+                                <button id="w">W</button>
+                                <button id="x">X</button>
+                                <button id="y">Y</button>
+                                <button id="z">Z</button>
+                            </div>
+                        </div>
+                        <div class="game-summary">
+                            <h2>Game Summary</h2>
+                            <p>You have been assigned a partner to guess a word. He is nervous since he needs to guess it correctly to pass 
+                                the class. You get 6 total guesses to guess the word. Run out of guesses... you guessed it... 
+                                 YOU LOSE! and your partner fails the class! you dont want to do that to him... do you?</p>
+                        </div>
+                </div>
+            </main>
+            <footer>
+                <p>Copyleft 20** <span>&copy;</span> - COMP2132</p>
+            </footer>
+        </div>
+        
+    </body>
+</html>
