@@ -57,13 +57,13 @@ html *:after {
 body {
   margin: 0;
   font-family: var(--block-text-font);
-  background-color: var(--dark-color-lighter);
+  background-color: var(--main-color-lighter);
 }
 
 img {
   max-width: 98%;
   height: auto;
-  border: 5px solid var(--grey-brown);
+  border: 5px solid var(--main-color-darker);
   display: block;
   margin: 10px auto;
 }
@@ -141,8 +141,8 @@ h6 {
 
 .overlay-image {
   position: absolute;
-  bottom: 0;
-  right: 0;
+  bottom: -2%;
+  right: 1%;
 }
 
 .game-container {
