@@ -102,6 +102,7 @@ h6 {
   z-index: 1000;
   top: 50%;
   left: 50%;
+  max-width: 20vw;
   transform: translate(-50%, -50%);
   border: 2px solid var(--main-color);
   border-radius: 10px;

@@ -11,7 +11,12 @@ const Hangman = {
     { word: "volcano", hint: "A mountain with a crater that erupts lava and ash." },
     { word: "treasure", hint: "A collection of valuable objects that are hidden or buried." },
     { word: "robot", hint: "A machine that can be programmed to perform a variety of tasks." },
-    { word: "chocolate", hint: "A sweet food made from roasted and ground cacao seeds." }
+    { word: "chocolate", hint: "A sweet food made from roasted and ground cacao seeds." },
+    { word: "guitar", hint: "An instrument with 6 strings played by strumming or picking." },
+    { word: "tornado", hint: "A violent wind storm that is characterized by rotating air." },
+    { word: "aquarium", hint: "A container filled with water and aquatic creatures." },
+    { word: "piano", hint: "An instrument with keys that is played by pressing the keys." },
+    { word: "telescope", hint: "An optical instrument used to view distant objects." },
   ],
 
   maxGuesses: 6,
@@ -95,7 +100,7 @@ const Hangman = {
       this.$classmateImage.attr("src", `images/lose/${randomImage}.png`);
       shakeImage(this.$classmateImage);
       this.$winOrLose.text("You LOSE!");
-      this.$winOrLoseMessage.text("You couldn't guess the word, and now your partner has failed the class. for your terrible performance, the teacher failed you too. However, you can try to redeem yourself by playing again!");
+      this.$winOrLoseMessage.text("You couldn't guess the word, and now your partner has failed the class. For your terrible performance, the teacher failed you too. However, you can try to redeem yourself by playing again!");
       this.$keyboardButton.attr('disabled', true);
       this.showPopup();
     }
